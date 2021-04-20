@@ -12,6 +12,8 @@ ZSH_THEME="agnoster"
 
 plugins=(git ssh-agent)
 
+zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
