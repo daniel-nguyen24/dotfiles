@@ -13,4 +13,3 @@ I also opt for `zsh` as my shell. The `install.sh` script then checks whether `z
 
  - If `zsh` is installed, It then checks whether `zsh` is configured as default shell, if not, it will execute `chsh -s $(which zsh)`.
  - if `zsh` is not install, it will try to install `zsh`.
-
