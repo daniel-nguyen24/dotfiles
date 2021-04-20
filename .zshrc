@@ -10,7 +10,7 @@ ZSH_CUSTOM=$DOTFILES/.oh-my-zsh-custom
 
 ZSH_THEME="agnoster"
 
-plugins=(git)
+plugins=(git ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
