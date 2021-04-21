@@ -1,16 +1,32 @@
-# ENV vars
+### ENV vars
+
+# Personal folders
 DOTFILES=$HOME/dotfiles
 PROJECTS=$HOME/Dev
 
-# Path to your oh-my-zsh installation.
+# Mounts for Win10 drives (WSL2)
+# M drive
+export win10M="/mnt/m"
+# C drive
+export win10C="/mnt/c"
+# H drive
+export win10H="/mnt/h"
+# Z drive (work laptop)
+export win10Z="/mnt/cohealth"
+
+# Path to oh-my-zsh installation
 ZSH="$DOTFILES/.oh-my-zsh"
 
 # Path to ZSH custom folder
 ZSH_CUSTOM=$DOTFILES/.oh-my-zsh-custom
 
+# ZSH theme
 ZSH_THEME="agnoster"
 
-plugins=(git ssh-agent)
+### ZSH plugins to load
+# omz plugins can be found in ~/.oh-my-zsh/plugins/*
+# custom plugins can be added to ~/.oh-my-zsh-custom/
+plugins=(git ssh-agent colored-man-pages command-not-found)
 
 zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
 
@@ -29,13 +45,3 @@ export LANG=en_AU.UTF-8
 
 # Set colours for LS_colours
 eval `dircolors ~/.dircolors`
-
-# Set environment variables to point to Windows 10 file system (WSL2)
-## M drive
-export win10M="/mnt/m"
-
-## C drive
-export win10C="/mnt/c"
-
-## H drive
-export win10H="/mnt/h"
