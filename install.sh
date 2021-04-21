@@ -16,8 +16,6 @@ echo "Creating '$OLDDIR' to backup existing dotfiles in ~..."
 mkdir -p $OLDDIR
 echo "Done"
 
-cd $DIR
-
 ## Move any existing dotfiles in $HOME dir to newly created dotfiles_old dir
 echo "Copying existing dotfiles in '$HOME' to '$OLDDIR'..."
 
@@ -28,6 +26,7 @@ done
 echo "Done"
 
 ## Create symlinks from here to $HOME dir
+cd $DIR
 for file in $FILES; do
   echo "Creating symlink to '$file' in '$HOME'"
   ln -s -f $DIR/$file ~/$file
