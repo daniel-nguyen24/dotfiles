@@ -12,6 +12,7 @@ export win10C="/mnt/c"
 # H drive
 export win10H="/mnt/h"
 # Z drive (work laptop)
+sudo mount -t drvfs '\\90M-LAIT109619\Users\daniel.nguyen\OneDrive - cohealth Ltd' /mnt/cohealth
 export win10Z="/mnt/cohealth"
 
 # Path to oh-my-zsh installation
@@ -32,9 +33,10 @@ zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+### User configuration
 
 export LANG=en_AU.UTF-8
+export LANGUAGE=en_AU:en
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -45,3 +47,19 @@ export LANG=en_AU.UTF-8
 
 # Set colours for LS_colours
 eval `dircolors ~/.dircolors`
+
+# Personal aliases
+alias dotfiles="cd $DOTFILES"
+alias ohmyzsh="cd $ZSH"
+alias reloadshell="eval $SHELL && clear"
+alias rmrf="rm -rf"
+alias cl="clear"
+
+# Pyenv stuffs
+export PYENV_ROOT="$HOME/.pyenv"
+
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

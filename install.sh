@@ -7,7 +7,7 @@
 
 DIR=~/dotfiles
 OLDDIR=~/dotfiles_old
-FILES=".bashrc .zshrc .dircolors .gitconfig .gitignore .oh-my-zsh .oh-my-zsh-custom"
+FILES=".bashrc .zshrc .dircolors .gitconfig .gitignore .oh-my-zsh .oh-my-zsh-custom .pyenv"
 
 ###########
 
@@ -29,7 +29,7 @@ echo "Done"
 cd $DIR
 for file in $FILES; do
   echo "Creating symlink to '$file' in '$HOME'"
-  ln -s -f $DIR/$file ~/$file
+  ln -s -f -n $DIR/$file ~/$file
 done
 
 echo "Done"
