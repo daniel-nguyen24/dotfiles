@@ -14,11 +14,6 @@ export win10C="/mnt/c"
 # H drive
 export win10H="/mnt/h"
 # Z drive (work laptop)
-#sudo mount -t drvfs '\\90M-LAIT109619\Users\daniel.nguyen\OneDrive - cohealth Ltd' /mnt/cohealth
-#Network location is mounted to W10 directly, then /etc/wsl.conf is edited with
-## [automount]
-## options = "metadata"
-sudo mount -t drvfs Z: /mnt/cohealth
 export win10Z="/mnt/cohealth"
 
 # Path to oh-my-zsh installation
@@ -66,6 +61,8 @@ export LANGUAGE=en_AU:en
 export LC_ALL=en_AU.UTF-8
 export MANPATH="/usr/local/man:$MANPATH"
 
+DEFAULT_USER='daniel'
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -82,6 +79,9 @@ alias ohmyzsh="cd $ZSH"
 alias reloadsh="eval $SHELL && clear"
 alias rmrf="rm -rf"
 alias cl="clear"
+
+#Mount network drive from work laptop
+sudo mount -t drvfs Z: /mnt/cohealth -o metadata,uid=1000,guid=1000,umask=22,fmask=111
 
 ######################
 # Updating utilities #
