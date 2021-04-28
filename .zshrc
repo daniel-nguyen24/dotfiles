@@ -14,7 +14,11 @@ export win10C="/mnt/c"
 # H drive
 export win10H="/mnt/h"
 # Z drive (work laptop)
-sudo mount -t drvfs '\\90M-LAIT109619\Users\daniel.nguyen\OneDrive - cohealth Ltd' /mnt/cohealth
+#sudo mount -t drvfs '\\90M-LAIT109619\Users\daniel.nguyen\OneDrive - cohealth Ltd' /mnt/cohealth
+#Network location is mounted to W10 directly, then /etc/wsl.conf is edited with
+## [automount]
+## options = "metadata"
+sudo mount -t drvfs Z: /mnt/cohealth
 export win10Z="/mnt/cohealth"
 
 # Path to oh-my-zsh installation
