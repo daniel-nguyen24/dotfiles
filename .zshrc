@@ -1,4 +1,6 @@
-### ENV vars
+############
+# ENV vars #
+############
 
 # Personal folders
 DOTFILES=$HOME/dotfiles
@@ -24,7 +26,10 @@ ZSH_CUSTOM=$DOTFILES/.oh-my-zsh-custom
 # ZSH theme
 ZSH_THEME="agnoster"
 
-### ZSH plugins to load
+#######################
+# ZSH plugins to load #
+#######################
+
 # omz plugins can be found in ~/.oh-my-zsh/plugins/*
 # custom plugins can be added to ~/.oh-my-zsh-custom/
 plugins=(git ssh-agent colored-man-pages command-not-found)
@@ -33,7 +38,9 @@ zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
 
 source $ZSH/oh-my-zsh.sh
 
-### User configuration
+######################
+# User configuration #
+######################
 
 export LANG=en_AU.UTF-8
 export LANGUAGE=en_AU:en
@@ -68,3 +75,39 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+######################
+# Updating utilities #
+######################
+
+# All credits go to samhwang https://github.com/samhwang/dotfiles/commit/386b1d5f6d337ce6cbed9e90a27257358252f3dd
+
+function update_packages() {
+  # To be added later
+  #if [ $(uname) = "Darwin" ]; then
+  #  brew update
+  #  brew upgrade
+  #  brew cleanup
+  #elif [ $(uname) = "Linux" ]; then
+  if [ $(uname) = "Linux" ]; then
+    sudo apt update
+    sudo apt upgrade -y
+    sudo apt autoremove -y
+  fi
+}
+
+function pkg_up () {
+  echo "UPDATING SYSTEM PACKAGES"
+  update_packages
+
+  echo "GOING TO DOTFILES DIRECTORY"
+  cd $DOTFILES
+  echo "CURRENTLY AT $(pwd)"
+
+  echo "UPDATING SUBMODULES IN DOTFILES DIRECTORY"
+  git submodule update --recursive --remote
+
+  echo "FINISHED UPDATING. GOING BACK TO PREVIOUS DIRECTORY"
+  cd -
+  echo "CURRENTLY AT $(pwd)"
+}
