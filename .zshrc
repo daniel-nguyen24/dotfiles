@@ -26,13 +26,28 @@ ZSH_CUSTOM=$DOTFILES/.oh-my-zsh-custom
 # ZSH theme
 ZSH_THEME="agnoster"
 
+# Pyenv stuffs
+export PYENV_ROOT="$HOME/.pyenv"
+
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# NVM stuffs
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+NVM_AUTOLOAD=1
+
 #######################
 # ZSH plugins to load #
 #######################
 
 # omz plugins can be found in ~/.oh-my-zsh/plugins/*
 # custom plugins can be added to ~/.oh-my-zsh-custom/
-plugins=(git ssh-agent colored-man-pages command-not-found)
+plugins=(git ssh-agent colored-man-pages command-not-found node npm nvm)
 
 zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
 
@@ -44,6 +59,8 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_AU.UTF-8
 export LANGUAGE=en_AU:en
+export LC_ALL=en_AU.UTF-8
+export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -61,20 +78,6 @@ alias ohmyzsh="cd $ZSH"
 alias reloadsh="eval $SHELL && clear"
 alias rmrf="rm -rf"
 alias cl="clear"
-
-# Pyenv stuffs
-export PYENV_ROOT="$HOME/.pyenv"
-
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# NVM stuffs
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ######################
 # Updating utilities #
