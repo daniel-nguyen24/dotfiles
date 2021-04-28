@@ -7,7 +7,7 @@
 
 DIR=~/dotfiles
 OLDDIR=~/dotfiles_old
-FILES=".bashrc .zshrc .dircolors .gitconfig .gitignore .oh-my-zsh .oh-my-zsh-custom .pyenv"
+FILES=".bashrc .zshrc .dircolors .gitconfig .gitignore .oh-my-zsh .oh-my-zsh-custom .pyenv .nvm"
 
 ###########
 
