@@ -40,13 +40,16 @@ eval "$(pyenv virtualenv-init -)"
 # NVM stuffs
 NVM_AUTOLOAD=1
 
+# Docker stuffs
+export PATH="$PATH:$HOME/.local/bin"
+
 #######################
 # ZSH plugins to load #
 #######################
 
 # omz plugins can be found in ~/.oh-my-zsh/plugins/*
 # custom plugins can be added to ~/.oh-my-zsh-custom/
-plugins=(git ssh-agent colored-man-pages command-not-found node npm nvm)
+plugins=(git ssh-agent colored-man-pages command-not-found node npm nvm zsh-autosuggestions)
 
 zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
 

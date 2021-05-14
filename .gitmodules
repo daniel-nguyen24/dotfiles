@@ -11,3 +11,6 @@
 	url = https://github.com/nvm-sh/nvm
 	ignore = dirty
 
+[submodule ".oh-my-zsh-custom/plugins/zsh-autosuggestions"]
+	path = .oh-my-zsh-custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
