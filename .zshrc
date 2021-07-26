@@ -12,7 +12,7 @@ export win10M="/mnt/m"
 # C drive
 export win10C="/mnt/c"
 # H drive
-export win10H="/mnt/h"
+export win10H="/mnt/d"
 # Z drive (work laptop)
 export win10Z="/mnt/cohealth"
 
@@ -49,9 +49,11 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # omz plugins can be found in ~/.oh-my-zsh/plugins/*
 # custom plugins can be added to ~/.oh-my-zsh-custom/
-plugins=(git ssh-agent colored-man-pages command-not-found node npm nvm zsh-autosuggestions)
 
-zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
+#plugins=(git ssh-agent colored-man-pages command-not-found node npm nvm zsh-autosuggestions)
+plugins=(git colored-man-pages command-not-found node npm nvm zsh-autosuggestions)
+
+#zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,12 +61,15 @@ source $ZSH/oh-my-zsh.sh
 # User configuration #
 ######################
 
+#sudo locale-gen en_AUS.UTF-8
+#sudo update-locale LANGE=en_AUS.UTF-8
+
 export LANG=en_AU.UTF-8
 export LANGUAGE=en_AU:en
 export LC_ALL=en_AU.UTF-8
 export MANPATH="/usr/local/man:$MANPATH"
 
-DEFAULT_USER='daniel'
+DEFAULT_USER='idark'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -84,7 +89,7 @@ alias rmrf="rm -rf"
 alias cl="clear"
 
 #Mount network drive from work laptop
-sudo mount -t drvfs Z: /mnt/cohealth -o metadata,uid=1000,guid=1000,umask=22,fmask=111
+#sudo mount -t drvfs Z: /mnt/cohealth -o metadata,uid=1000,guid=1000,umask=22,fmask=111
 
 ######################
 # Updating utilities #
