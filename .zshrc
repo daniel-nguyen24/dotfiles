@@ -1,8 +1,4 @@
-############
-# ENV vars #
-############
-
-# Personal folders
+## Personal folders
 DOTFILES=$HOME/dotfiles
 PROJECTS=$HOME/Dev
 
@@ -27,8 +23,9 @@ ZSH_THEME="agnoster"
 
 # Pyenv stuffs
 export PYENV_ROOT="$HOME/.pyenv"
-
 export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
