@@ -47,10 +47,9 @@ export PATH="$PATH:$HOME/.local/bin"
 # omz plugins can be found in ~/.oh-my-zsh/plugins/*
 # custom plugins can be added to ~/.oh-my-zsh-custom/
 
-#plugins=(git ssh-agent colored-man-pages command-not-found node npm nvm zsh-autosuggestions)
-plugins=(git colored-man-pages command-not-found node npm nvm zsh-autosuggestions)
+plugins=(git ssh-agent colored-man-pages command-not-found node npm nvm zsh-autosuggestions)
 
-#zstyle :omz:plugins:ssh-agent identities git_daniel-nguyen24
+zstyle :omz:plugins:ssh-agent identities daniel-nguyen24_github
 
 source $ZSH/oh-my-zsh.sh
 
@@ -67,6 +66,9 @@ export LC_ALL=en_AU.UTF-8
 export MANPATH="/usr/local/man:$MANPATH"
 
 DEFAULT_USER='idark'
+
+#Balena-cli PATH
+export PATH="$PATH:$HOME/balena-cli/balena-cli"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
