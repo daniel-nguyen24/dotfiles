@@ -28,8 +28,10 @@ eval "$(pyenv virtualenv-init -)"
 ## NVM stuffs
 NVM_AUTOLOAD=1
 export NVM_DIR="$HOME/.nvm"
-[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"                                       # This loads nvm
-[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+# This loads nvm
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"
+# This loads nvm bash_completion
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
 ## Starship init
 eval "$(starship init zsh)"
@@ -44,3 +46,12 @@ alias rmrf="rm -rf"
 alias cl="clear"
 alias la="ls -la"
 alias ll="ls -l"
+
+## Clone all repos from GitHub Organisation
+# Requires:
+#   - GitHub CLI (brew install gh) - Setup and Authenticated
+#   - jq (brew install jq)
+CloneAllOrgRepo() {
+    ORG_NAME="${1}"
+    gh repo list $ORG_NAME --json nameWithOwner | jq '.[]|.nameWithOwner' | xargs -n1 gh repo clone
+}
