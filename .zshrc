@@ -55,3 +55,7 @@ CloneAllOrgRepo() {
     ORG_NAME="${1}"
     gh repo list $ORG_NAME --json nameWithOwner | jq '.[]|.nameWithOwner' | xargs -n1 gh repo clone
 }
+
+## ZSH stuffs
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
