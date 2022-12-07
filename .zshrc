@@ -46,6 +46,11 @@ alias rmrf="rm -rf"
 alias cl="clear"
 alias la="ls -la"
 alias ll="ls -l"
+alias ..="cd .."
+
+## AWS CLI stuffs
+export AWS_PROFILE=TDFMain
+AWS_CLI_AUTO_PROMPT=on
 
 ## Clone all repos from GitHub Organisation
 # Requires:
@@ -53,7 +58,7 @@ alias ll="ls -l"
 #   - jq (brew install jq)
 CloneAllOrgRepo() {
     ORG_NAME="${1}"
-    gh repo list $ORG_NAME --json nameWithOwner | jq '.[]|.nameWithOwner' | xargs -n1 gh repo clone
+    gh repo list $ORG_NAME --json sshUrl | jq '.[]|.sshUrl' | xargs -n1 gh repo clone
 }
 
 ## ZSH stuffs
