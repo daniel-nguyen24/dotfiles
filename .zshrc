@@ -50,7 +50,7 @@ alias ..="cd .."
 
 ## AWS CLI stuffs
 export AWS_PROFILE=TDFMain
-AWS_CLI_AUTO_PROMPT=on
+export AWS_CLI_AUTO_PROMPT=on
 
 ## Clone all repos from GitHub Organisation
 # Requires:
