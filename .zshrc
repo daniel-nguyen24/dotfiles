@@ -39,18 +39,25 @@ eval "$(starship init zsh)"
 ## iterm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+## thefuck
+eval $(thefuck --alias)
+
 ## Personal aliases
 alias dotfiles="cd $DOTFILES"
 alias reloadsh="eval $SHELL && clear"
 alias rmrf="rm -rf"
 alias cl="clear"
-alias la="ls -la"
-alias ll="ls -l"
-alias ..="cd .."
+alias ls="eza"
+alias la="eza -a"
+alias ll="eza -l"
+alias lla="eza -la"
+alias cd="z"
+alias ..="z .."
+alias sail="./vendor/bin/sail"
 
 ## AWS CLI stuffs
 export AWS_PROFILE=TDFMain
-export AWS_CLI_AUTO_PROMPT=on
+export AWS_CLI_AUTO_PROMPT=on-partial
 
 ## Clone all repos from GitHub Organisation
 # Requires:
@@ -64,3 +71,13 @@ CloneAllOrgRepo() {
 ## ZSH stuffs
 # zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zoxide & fzf
+eval "$(zoxide init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# eza completions
+export FPATH="~/dotfiles/eza/completions/zsh:$FPATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
